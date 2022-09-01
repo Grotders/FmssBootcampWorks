@@ -1,5 +1,6 @@
 package Week02.Exercises;
 
+import java.util.Date;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -12,12 +13,12 @@ public class Main {
 //        exercise4();
 //        exercise5();
 //        exercise6();
-//        exercise7();
+        exercise7();
 //        exercise8();
 //        exercise9();
 //        exercise10();
 //        exercise11();
-        exercise12();
+//        exercise12();
     }
 
 
@@ -152,37 +153,13 @@ public class Main {
 		- 1.1.1900' den önceki tarihler geçersiz kabul edilecektir
 ----------------------------------------------------------------------------------------------------------------------*/
     public static void exercise9() {
-        System.out.println("day of year (day, month, year)");
+        System.out.println("date to which day is it (day, month, year)");
         int day = Integer.parseInt(getInput("Günü giriniz: "));
         int month = Integer.parseInt(getInput("Ayı giriniz: "));
         int year = Integer.parseInt(getInput("Yılı giriniz: "));
 
-        String text;
-        switch(DateUtil.getDayOfWeek(day, month, year)) {
-            case 0:
-                text = "Sunday";
-                break;
-            case 1:
-                text = "Monday";
-                break;
-            case 2:
-                text = "Tuesday";
-                break;
-            case 3:
-                text = "Wednesday";
-                break;
-            case 4:
-                text = "Thursday";
-                break;
-            case 5:
-                text = "Friday";
-                break;
-            case 6:
-                text = "Saturday";
-                break;
-            default:
-                text = "invalid date";
-        }
+        String text = DateUtil.getDayName(day, month, year);
+
         System.out.println(text);
     }
 
@@ -222,20 +199,14 @@ public class Main {
 	basit simülasyon programını yazınız
 ----------------------------------------------------------------------------------------------------------------------*/
     public static void exercise11() {
-        int totalProbability = 0;
-        int sameDice = 0;
-        for (int firstDice=1; firstDice<=6; firstDice++) {
-            for (int secondDice=1; secondDice <= 6; secondDice++) {
-                System.out.print(firstDice + "," + secondDice + "\t");
-                if (firstDice == secondDice)
-                    ++sameDice;
-                ++totalProbability;
-            }
-            System.out.println();
+        int cycle = Integer.parseInt(getInput("Kaç kere çift zar atmak istiyorsun: "));
+        int count = 0;
+        for (int i=0; i<cycle; i++) {
+            if (NumberUtil.getRandomNumber() == NumberUtil.getRandomNumber())
+                ++count;
         }
-        double result = (double) sameDice / totalProbability * 100;
-        System.out.printf("2 zarın aynı gelme olasılığı: %%%.2f", result);
-
+        double probability = (double) count / cycle;
+        System.out.println(cycle + ". kere çift zar atıldı -> %" + probability + " tanesi çift");
     }
 
 // Exercise 12

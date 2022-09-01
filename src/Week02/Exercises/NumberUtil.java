@@ -1,5 +1,7 @@
 package Week02.Exercises;
 
+import java.util.Random;
+
 public class NumberUtil {
     // exercise 1
     public static int getDigitsCount(int number) {
@@ -54,5 +56,10 @@ public class NumberUtil {
         if (number == 0)
             return 1;
         return number * factorial(number - 1);
+    }
+
+    public static int getRandomNumber() {
+        Random rand = new Random();
+        return rand.nextInt(1,7);
     }
 }

@@ -1,17 +1,28 @@
 package Week02.Exercises;
 
 public class DateUtil {
-    private static final int JANUARY = 31;
-    private static final int FEBRUARY = 28;
-    private static final int MARCH = 31;
-    private static final int APRIL = 30;
-    private static final int MAY = 31;
-    private static final int JUNE = 30;
-    private static final int JULY = 31;
-    private static final int AUGUST = 31;
-    private static final int SEPTEMBER = 30;
-    private static final int OCTOBER = 31;
-    private static final int NOVEMBER = 30;
+
+    enum Month{
+        JANUARY(0, 31), FEBRUARY(1, 28),MARCH(2, 31),APRIL(4, 30),
+        MAY(5, 31),JUNE(6, 30),JULY(7, 31),AUGUST(8, 31),
+        SEPTEMBER(9, 30),OCTOBER(10, 31),NOVEMBER(11, 30);
+
+        final int no;
+        final int numberOfDay;
+
+        private Month(int no, int numberOfDay) {
+            this.no = no;
+            this.numberOfDay = numberOfDay;
+        }
+
+        public int getNo() {
+            return no;
+        }
+
+        public int getNumberOfDay() {
+            return numberOfDay;
+        }
+    }
 
     // exercise 6
     public static boolean isLeapYear(int year) {
@@ -22,7 +33,10 @@ public class DateUtil {
 
     // exercise 7
     public static boolean isValidDate(int day, int month, int year) {
-        if (day < 1 || day > 31)
+        // Leap Year February
+        if (month == 2 && isLeapYear(year) && (day >= 1 || day <= (Month.FEBRUARY.numberOfDay + 1)))
+            return true;
+        if (day < 1 || day > Month.values()[month-1].numberOfDay)
             return false;
         if (month < 1 || month > 12)
             return false;
@@ -37,29 +51,29 @@ public class DateUtil {
         int dayOfYear = day;
         switch (month-1) {
             case 11:
-                dayOfYear += NOVEMBER;
+                dayOfYear += Month.NOVEMBER.numberOfDay;
             case 10:
-                dayOfYear += OCTOBER;
+                dayOfYear += Month.OCTOBER.numberOfDay;
             case 9:
-                dayOfYear += SEPTEMBER;
+                dayOfYear += Month.SEPTEMBER.numberOfDay;
             case 8:
-                dayOfYear += AUGUST;
+                dayOfYear += Month.AUGUST.numberOfDay;
             case 7:
-                dayOfYear += JULY;
+                dayOfYear += Month.JULY.numberOfDay;
             case 6:
-                dayOfYear += JUNE;
+                dayOfYear += Month.JUNE.numberOfDay;
             case 5:
-                dayOfYear += MAY;
+                dayOfYear += Month.MAY.numberOfDay;
             case 4:
-                dayOfYear += APRIL;
+                dayOfYear += Month.APRIL.numberOfDay;
             case 3:
-                dayOfYear += MARCH;
+                dayOfYear += Month.MARCH.numberOfDay;
             case 2:
-                dayOfYear += FEBRUARY;
+                dayOfYear += Month.FEBRUARY.numberOfDay;
                 if (isLeapYear(year))
                     ++dayOfYear;
             case 1:
-                dayOfYear += JANUARY;
+                dayOfYear += Month.JANUARY.numberOfDay;
         }
         return dayOfYear;
     }
@@ -73,5 +87,26 @@ public class DateUtil {
         totalDay += (year - 1900) * 365;
         totalDay += (year - 1900) / 4; // total leap years (year - 1900)
         return totalDay % 7;
+    }
+
+    public static String getDayName(int day, int month, int year) {
+        switch(getDayOfWeek(day, month, year)) {
+            case 0:
+                return "Sunday";
+            case 1:
+                return "Monday";
+            case 2:
+                return "Tuesday";
+            case 3:
+                return "Wednesday";
+            case 4:
+                return "Thursday";
+            case 5:
+                return "Friday";
+            case 6:
+                return "Saturday";
+            default:
+                return "invalid date";
+        }
     }
 }
