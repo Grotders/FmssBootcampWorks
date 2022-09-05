@@ -9,8 +9,6 @@ public class Main {
 //        exercise2();
 //        exercise3();
         exercise4();
-//        exercise5();
-
     }
 
 // Exercise 1

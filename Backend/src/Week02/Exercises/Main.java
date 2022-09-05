@@ -1,7 +1,5 @@
 package Week02.Exercises;
 
-import java.util.Date;
-import java.util.Random;
 import java.util.Scanner;
 
 public class Main {

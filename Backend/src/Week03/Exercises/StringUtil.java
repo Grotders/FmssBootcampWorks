@@ -9,6 +9,7 @@ public class StringUtil {
     final static Character [] alphabetEN = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n',
             'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
 
+    // Exercise 1
     // Turkish character problem: I -> ı
     public static boolean isPangramTR(String text) {
         String lowerCaseTextTR = text.toLowerCase(Locale.forLanguageTag("tr-TR"));
@@ -21,6 +22,7 @@ public class StringUtil {
         return true;
     }
 
+    // Exercise 1
     public static boolean isPangramEN(String text) {
         String lowerCaseText = text.toLowerCase();
 
@@ -32,10 +34,11 @@ public class StringUtil {
         return true;
     }
 
+    // Exercise 2
     private static String cleanText(String text) {
         return text.replaceAll("[^A-Za-z]", "").toLowerCase();
     }
-
+    // Exercise 2
     public static boolean isPalindrome(String text) {
         String cleanedLowerCaseText = cleanText(text);
 
@@ -48,6 +51,7 @@ public class StringUtil {
         return true;
     }
 
+    // Exercise 3
     private static String generateRandomString() {
         int length = InputUtil.getRandomInt();
         String text = "";
@@ -58,6 +62,7 @@ public class StringUtil {
         return text;
     }
 
+    // Exercise 3
     public static String[] generateRandomStringArray(int size) {
         String [] array = new String[size];
 
@@ -68,6 +73,7 @@ public class StringUtil {
         return array;
     }
 
+    // Exercise 3
     public static String arrayToString(String[] array) {
         String text = "";
         for (int i=0; i<array.length; i++) {

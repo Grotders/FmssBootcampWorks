@@ -16,9 +16,11 @@ public class InputUtil {
         return Integer.parseInt(getInput(text));
     }
 
+    // Exercise 3
     public static int getRandomInt() {
         return getRandomInt(3,20);
     }
+    // Exercise 3
     public static int getRandomInt(int min, int max) {
         Random rand = new Random();
         return rand.nextInt(min, max+1);

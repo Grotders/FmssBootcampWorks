@@ -1,0 +1,34 @@
+section {
+    margin: 125px;
+}
+
+section > img {
+    width: 22.563rem !important;
+    margin: 0 auto;
+}
+
+.rating > i {
+    color: #FFD600;
+}
+
+.rating > i:nth-child(5) {
+    color: #C4C4C4
+}
+
+.rating > small {
+    color: #B0B2B8;
+}
+
+.card-text {
+    color: #616265;
+}
+
+.times > label {
+    color: #D3D6DC;
+    border-color: #D3D6DC;
+}
+
+.btn-check:checked+.btn, .btn-outline-purple:hover {
+    border-color: #4C5ADC !important;
+    color: #4C5ADC !important;
+}
