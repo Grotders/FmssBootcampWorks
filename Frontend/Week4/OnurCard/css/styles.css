@@ -1,0 +1,26 @@
+.my-card {
+    border-radius: 16px;
+    margin: 100px;
+    background: linear-gradient(80deg, #FD42CD 10%, #F28300 90%);
+    width: 21.375rem;
+    height: 11.5rem;
+}
+
+p {
+    color: white;
+    font-size: 10px;
+}
+
+.balance-title {
+    height: 12px;
+}
+
+.opacity-text {
+    color: white;
+    margin-bottom: 0;
+    opacity: 0.35;
+}
+
+.card-number > p, .balance{
+    font-size: 1.2rem;
+}
